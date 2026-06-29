@@ -12,7 +12,7 @@
 
 <style>
 :root {
-  --hero-image: url('imagens/heroimgupscayled.png');
+  --hero-image: url('imagens/heroimagem404_upscayl_2x_high-fidelity-4x.png');
   
   --primary-dark: #223a2c;   /* Verde Musgo Profundo */
   --secondary-dark: #3b5c46; /* Verde Secundário */
@@ -25,7 +25,6 @@
   --footer-bg: #eaede7;
 }
 
-/* Otimizações críticas para renderização */
 html {
   scroll-behavior: initial !important;
 }
@@ -75,6 +74,7 @@ nav .logo-area .logo-img {
   max-height: 55px;
   width: auto;
   display: block;
+  transition: all 0.3s ease;
 }
 
 nav .menu-area {
@@ -91,7 +91,7 @@ nav .menu-area a {
   font-size: 16px;
   padding: 10px 20px;
   border-radius: 30px;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, font-size 0.3s ease, padding 0.3s ease;
   position: relative;
   z-index: 2;
 }
@@ -136,7 +136,6 @@ nav .menu-area a.nav-cta:hover {
   position: relative;
 }
 
-/* Máscara escura para garantir leitura em cima da imagem */
 .hero-wrapper::before {
   content: '';
   position: absolute;
@@ -165,6 +164,7 @@ header h1 {
   line-height: 1.15;
   max-width: 800px;
   text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  transition: font-size 0.3s ease;
 }
 
 header h1 span {
@@ -178,6 +178,7 @@ header p {
   color: #f0f0f0;
   line-height: 1.6;
   text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  transition: font-size 0.3s ease;
 }
 
 .hero-buttons {
@@ -211,10 +212,10 @@ header .btn-hero.secondary:hover {
   color: var(--primary-dark);
 }
 
-/* SCROLL REVEAL - NOVO EFEITO PERCEPTÍVEL */
+/* SCROLL REVEAL */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(80px); /* Distância maior para o elemento subir */
+  transform: translateY(80px);
   will-change: transform, opacity;
   transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -224,7 +225,6 @@ header .btn-hero.secondary:hover {
   transform: translateY(0);
 }
 
-/* Atrasos escalonados para itens em grade */
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
 .delay-3 { transition-delay: 0.3s; }
@@ -368,45 +368,73 @@ header .btn-hero.secondary:hover {
   color: var(--primary-dark);
 }
 
-/* SEÇÃO DE SERVIÇOS - BOXES CORRIGIDOS */
+/* SEÇÃO DE SERVIÇOS (MODERNA & CLEAN) */
 #servicos {
   padding: 100px 0;
+  background-color: var(--bg-light);
 }
 
 .container {
   display: flex;
   justify-content: center;
-  align-items: stretch; /* Garante que todas as caixas tenham a mesma altura */
-  flex-wrap: wrap; /* Permite quebrar linha apenas se a tela for pequena */
+  align-items: stretch;
+  flex-wrap: wrap; 
   gap: 30px;
 }
 
 .box {
   background: var(--card-bg);
-  padding: 50px 40px;
-  flex: 1; /* Faz as caixas crescerem igualmente */
-  min-width: 280px; /* Impede que fiquem finas demais */
+  padding: 45px 35px;
+  flex: 1; 
+  min-width: 280px; 
   max-width: 380px;
-  border-radius: 24px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.04);
-  text-align: center;
-  border-bottom: 5px solid var(--primary-dark);
-  transition: transform 0.3s ease;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-top: 4px solid var(--primary-dark);
+  text-align: left; /* Alinhamento à esquerda confere mais sofisticação */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .box:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(34, 58, 44, 0.06);
+}
+
+.box-icon {
+  background: rgba(34, 58, 44, 0.05);
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  color: var(--primary-dark);
+}
+
+.box-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
 }
 
 .box h3 {
   color: var(--primary-dark);
-  font-size: 24px;
-  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  letter-spacing: -0.3px;
 }
 
 .box p {
-  color: #555;
+  color: #555555;
+  font-size: 15px;
   line-height: 1.6;
+  margin: 0;
 }
 
 /* SEÇÃO CONTATO */
@@ -608,7 +636,10 @@ button:hover {
 .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; padding: 16px 28px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 999; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: transform 0.3s ease; }
 .whatsapp:hover { transform: scale(1.05); }
 
-/* RESPONSIVIDADE */
+/* ==========================================================================
+   RESPONSIVIDADE PREMIUM MOBILE (ALINHAMENTO EM LINHA DA ILHA DINÂMICA)
+   ========================================================================== */
+
 @media (max-width: 1024px) {
   .agri-grid, .contact-grid { grid-template-columns: 1fr; gap: 30px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
@@ -616,14 +647,65 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .agri-text-cards, .footer-grid { grid-template-columns: 1fr; }
-  .footer-board, .contact-grid { padding: 40px 30px; }
-  .copyright-links { flex-direction: column; gap: 10px; }
-  nav { border-radius: 20px; flex-direction: column; padding: 15px; width: 90% !important; }
-  header h1 { font-size: 38px; }
+  
+  /* Mantém a logo ao lado dos botões sem quebrar linhas na barra de navegação */
+  nav { 
+    display: flex !important;
+    flex-direction: row !important; 
+    padding: 6px 15px !important; 
+    border-radius: 40px !important; 
+    width: 95% !important; 
+    justify-content: space-between !important; 
+    align-items: center !important;
+  }
+  nav .logo-area .logo-img { max-height: 26px; }
+  nav .menu-area { display: flex !important; flex-direction: row !important; gap: 2px; }
+  nav .menu-area a { font-size: 11px; padding: 6px 10px; }
+  nav .menu-area a.nav-cta { font-size: 11px; padding: 8px 12px; margin-left: 2px; }
   .nav-indicator { display: none; }
-  .container { flex-direction: column; align-items: center; }
-  .box { width: 100%; max-width: none; }
+
+  /* Centraliza e redimensiona o Hero */
+  header { padding: 140px 0 80px 0; text-align: center; }
+  header h1 { font-size: 34px; margin: 0 auto 15px auto; }
+  header p { font-size: 16px; margin: 0 auto 30px auto; }
+  
+  .hero-buttons { flex-direction: column; align-items: center; width: 100%; }
+  header .btn-hero { width: 100%; box-sizing: border-box; text-align: center; font-size: 14px; padding: 14px 20px; }
+
+  /* Ajustes gerais de espaçamento interno */
+  .agri-board, .contact-grid, .footer-board { padding: 30px 20px; border-radius: 20px; }
+  .agri-board h2, .contact-info h2 { font-size: 28px; margin-bottom: 30px; }
+  
+  .agri-text-cards, .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+  
+  /* Cards Soluções */
+  .agri-card { padding: 25px 20px; }
+  .agri-card h3 { font-size: 20px; }
+  .agri-image-card { min-height: 350px; padding: 30px 20px; }
+  .agri-image-card h3 { font-size: 24px; }
+  .agri-image-card .btn-card { width: 100%; font-size: 14px; }
+
+  /* Ajustes da Seção de Serviços Técnicos no Mobile */
+  #servicos { padding: 60px 0; }
+  #servicos h2 { font-size: 28px; margin-bottom: 30px; }
+  .container { flex-direction: column; align-items: center; gap: 20px; }
+  .box { width: 100%; max-width: none; padding: 35px 25px; border-radius: 16px; }
+
+  /* Rodapé */
+  .contact-grid { margin-bottom: 40px; }
+  .copyright-links { flex-direction: column; gap: 10px; text-align: center; }
+  .copyright-right { justify-content: center; }
+
+  .whatsapp { bottom: 15px; right: 15px; padding: 12px 20px; font-size: 14px; }
+}
+
+/* Telas extra pequenas */
+@media (max-width: 480px) {
+  nav { padding: 6px 10px !important; }
+  nav .logo-area .logo-img { max-height: 20px; }
+  nav .menu-area a { font-size: 10px; padding: 5px 6px; }
+  nav .menu-area a.nav-cta { font-size: 10px; padding: 6px 10px; }
+  header h1 { font-size: 28px; }
 }
 </style>
 </head>
@@ -691,19 +773,35 @@ button:hover {
 </div>
 
 <section id="servicos" class="layout-width">
-  <p class="section-subtitle scroll-reveal" style="text-align: center; color: var(--accent-green); font-weight: bold; text-transform: uppercase;"></p>
-  <h2 class="scroll-reveal delay-1" style="text-align:center; color: var(--primary-dark); font-size:38px; margin-bottom:50px;">Serviços Técnicos</h2>
+  <h2 class="scroll-reveal delay-1" style="text-align:center; color: var(--primary-dark); font-size:38px; margin-bottom:50px; font-weight: 700;">Serviços Técnicos</h2>
   
   <div class="container">
     <div class="box scroll-reveal delay-1">
+      <div class="box-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+        </svg>
+      </div>
       <h3>Consultoria Técnica</h3>
       <p>Engenheiros agrônomos especializados atuando lado a lado com você para garantir as melhores decisões de manejo.</p>
     </div>
+    
     <div class="box scroll-reveal delay-2">
+      <div class="box-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 8H4V6h16v2zm-2 5H6v-2h12v2zm-2 5H8v-2h8v2z"/>
+        </svg>
+      </div>
       <h3>Logística Rápida</h3>
       <p>Entrega eficiente e segura em toda a região sul do país, garantindo que os insumos cheguem no momento exato.</p>
     </div>
+    
     <div class="box scroll-reveal delay-3">
+      <div class="box-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-11v4h2v-4h3l-4-4-4 4h3z"/>
+        </svg>
+      </div>
       <h3>Pós-venda</h3>
       <p>Acompanhamento completo de ponta a ponta para garantir a máxima performance e os melhores resultados na safra.</p>
     </div>
@@ -809,9 +907,9 @@ button:hover {
 <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
 <script>
-// 1. MOTOR DE ROLAGEM SUAVE LENIS COM LIMITADOR DE VELOCIDADE
+// 1. MOTOR DE ROLAGEM SUAVE LENIS
 const lenis = new Lenis({
-  duration: 2.5, // LIMITADOR: Scroll mais longo e denso
+  duration: 2.5, 
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   direction: 'vertical',
   smooth: true,
@@ -824,10 +922,10 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-// 2. INTERSECTION OBSERVER PARA O SCROLL REVEAL (Efeito visual)
+// 2. INTERSECTION OBSERVER PARA O SCROLL REVEAL
 const observerOptions = {
   root: null,
-  threshold: 0.15, // Aciona quando 15% do elemento estiver visível
+  threshold: 0.15,
   rootMargin: "0px 0px -50px 0px"
 };
 
@@ -835,8 +933,6 @@ const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // Opcional: descomente a linha abaixo se quiser que a animação ocorra apenas uma vez
-      // revealObserver.unobserve(entry.target);
     }
   });
 }, observerOptions);
@@ -845,7 +941,7 @@ document.querySelectorAll('.scroll-reveal').forEach(el => {
   revealObserver.observe(el);
 });
 
-// Força a exibição dos elementos do Header ao carregar a página
+// Força a exibição inicial
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.querySelectorAll('header .scroll-reveal').forEach(el => {
@@ -854,7 +950,7 @@ window.addEventListener('load', () => {
   }, 100);
 });
 
-// 3. LOGICA DO GUIA VERDE DESLIZANTE LATERAL NO MENU
+// 3. LOGICA DO GUIA VERDE NO MENU
 const links = document.querySelectorAll('.menu-area .nav-link');
 const indicator = document.querySelector('.nav-indicator');
 const menuArea = document.querySelector('.menu-area');
@@ -866,7 +962,7 @@ function moveIndicator(element) {
 }
 
 menuArea.addEventListener('mouseenter', () => {
-  indicator.style.opacity = '1';
+  if (window.innerWidth > 768) indicator.style.opacity = '1';
 });
 
 links.forEach(link => {
@@ -874,7 +970,7 @@ links.forEach(link => {
     links.forEach(l => l.classList.remove('active'));
     link.classList.add('active');
     moveIndicator(link);
-    indicator.style.opacity = '1';
+    if (window.innerWidth > 768) indicator.style.opacity = '1';
   });
   link.addEventListener('mouseenter', () => moveIndicator(link));
 });
