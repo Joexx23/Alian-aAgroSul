@@ -9,24 +9,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!preloader) return;
 
-  // Função para fechar o preloader de forma elegante
+  // Função para fechar o preloader de forma elegante (Premium Fade + Blur)
   function hidePreloader() {
     const elapsedTime = Date.now() - startTime;
     const remainingTime = Math.max(0, MIN_DURATION - elapsedTime);
 
     setTimeout(() => {
-      // Transição elegante usando CSS (Fade + Escala)
+      // Transição premium suave (Reduz opacidade e aplica desfoque leve)
       preloader.style.opacity = "0";
-      preloader.style.transform = "scale(1.03)";
+      preloader.style.filter = "blur(10px)";
       
-      // Remove do fluxo após o término da transição CSS (600ms)
+      // Remove do fluxo após o término da transição CSS (500ms)
       setTimeout(() => {
         preloader.style.display = "none";
-        document.body.style.overflow = ""; // Restaura o scroll
+        document.body.style.overflow = ""; // Restaura o scroll do Lenis
         
-        // Dispara evento nativo para que outras animações saibam que o preloader acabou
+        // Dispara evento nativo para ativar o Scroll Reveal
         window.dispatchEvent(new Event('preloaderFinished'));
-      }, 600);
+      }, 500);
 
     }, remainingTime);
   }
